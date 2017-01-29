@@ -51,6 +51,16 @@ teensy_loader_cli: teensy_loader_cli.c
 
 endif
 
+ifeq ($(OS), WINDOWS)
+all: teensy_loader_cli.exe
 
 clean:
-	rm -f teensy_loader_cli teensy_loader_cli.exe*
+	rm -f teensy_loader_cli.exe*
+
+else
+all: teensy_loader_cli
+
+clean:
+	rm -f teensy_loader_cli
+
+endif
